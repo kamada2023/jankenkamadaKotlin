@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">じゃんけんゲームver3.0</string>
+    <string name="app_name">じゃんけんゲームver3.1</string>
     <string name="total_result">%1s勝ち%2s負け%3s引き分け</string>
     <string name="game_start">ゲームスタート</string>
     <string name="rounds">第%1s戦目：</string>
