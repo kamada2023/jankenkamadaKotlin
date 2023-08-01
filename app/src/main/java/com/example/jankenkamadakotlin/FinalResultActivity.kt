@@ -21,8 +21,8 @@ class FinalResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val MP = TableLayout.LayoutParams.MATCH_PARENT
-        val WC = TableLayout.LayoutParams.WRAP_CONTENT
+        val layMp = TableLayout.LayoutParams.MATCH_PARENT
+        val layWc = TableLayout.LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 
@@ -31,12 +31,12 @@ class FinalResultActivity : AppCompatActivity() {
         val countDraw:Int = CountApp().getDrawCount()
 
         val layout = ConstraintLayout(this)
-        layout.layoutParams = LayoutParams(MP,MP)
+        layout.layoutParams = LayoutParams(layMp,layMp)
         layout.setPadding(20,20,20,20)
         setContentView(layout)
 
         val linearLayout = LinearLayout(this).apply { id = View.generateViewId() }
-        linearLayout.layoutParams = LayoutParams(MP,MP)
+        linearLayout.layoutParams = LayoutParams(layMp,layMp)
         linearLayout.orientation = VERTICAL
         linearLayout.weightSum = 10F
         setContentView(linearLayout)
@@ -64,7 +64,7 @@ class FinalResultActivity : AppCompatActivity() {
         constraintSet.applyTo(layout)
 
         val textView = TextView(this)
-        textView.layoutParams = LayoutParams(MP,WC)
+        textView.layoutParams = LayoutParams(layMp,layWc)
         (textView.layoutParams as LayoutParams).weight = 2F
         textView.textSize = 30F
         textView.gravity = CENTER
@@ -72,33 +72,33 @@ class FinalResultActivity : AppCompatActivity() {
         linearLayout.addView(textView)
 
         val resultDrawFinal = ImageView(this)
-        resultDrawFinal.layoutParams = LayoutParams(MP,WC)
+        resultDrawFinal.layoutParams = LayoutParams(layMp,layWc)
         (resultDrawFinal.layoutParams as LayoutParams).weight = 1F
         linearLayout.addView(resultDrawFinal)
 
         val finCountWin = TextView(this)
-        finCountWin.layoutParams = LayoutParams(MP,WC)
+        finCountWin.layoutParams = LayoutParams(layMp,layWc)
         finCountWin.textSize = 20F
         (finCountWin.layoutParams as LayoutParams).weight = 1F
         finCountWin.text = "勝った数：$countWin"
         linearLayout.addView(finCountWin)
 
         val finCountLose = TextView(this)
-        finCountLose.layoutParams = LayoutParams(MP,WC)
+        finCountLose.layoutParams = LayoutParams(layMp,layWc)
         finCountLose.textSize = 20F
         (finCountLose.layoutParams as LayoutParams).weight = 1F
         finCountLose.text = "負けた数：$countLose"
         linearLayout.addView(finCountLose)
 
         val finCountDraw = TextView(this)
-        finCountDraw.layoutParams = LayoutParams(MP,WC)
+        finCountDraw.layoutParams = LayoutParams(layMp,layWc)
         finCountDraw.textSize = 20F
         (finCountDraw.layoutParams as LayoutParams).weight = 1F
         finCountDraw.text = "引き分け数：$countDraw"
         linearLayout.addView(finCountDraw)
 
         val backTitle = Button(this)
-        backTitle.layoutParams = LayoutParams(MP,WC)
+        backTitle.layoutParams = LayoutParams(layMp,layWc)
         (backTitle.layoutParams as LayoutParams).weight = 0F
         backTitle.text = "タイトルへ"
         linearLayout.addView(backTitle)

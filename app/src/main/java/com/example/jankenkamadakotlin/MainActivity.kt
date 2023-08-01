@@ -26,19 +26,19 @@ class MainActivity : AppCompatActivity() {
         val chHand = 1
         val paHand = 2
 
-        val MP = LayoutParams.MATCH_PARENT
-        val WC = LayoutParams.WRAP_CONTENT
+        val layMp = LayoutParams.MATCH_PARENT
+        val layWc = LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 
         val linearLayout = LinearLayout(this)
-        linearLayout.layoutParams = LayoutParams(MP,MP)
+        linearLayout.layoutParams = LayoutParams(layMp,layMp)
         linearLayout.orientation = VERTICAL
         linearLayout.weightSum = 7F
         setContentView(linearLayout)
 
         val textView = TextView(this)
-        textView.layoutParams = LayoutParams(MP,WC)
+        textView.layoutParams = LayoutParams(layMp,layWc)
         textView.setPadding(20)
         textView.gravity = Gravity.CENTER
         if (count == 0) {
@@ -51,19 +51,19 @@ class MainActivity : AppCompatActivity() {
         linearLayout.addView(textView)
 
         val imageView = ImageView(this)
-        imageView.layoutParams = LayoutParams(MP,WC)
+        imageView.layoutParams = LayoutParams(layMp,layWc)
         imageView.setImageResource(R.drawable.main)
         (imageView.layoutParams as LinearLayout.LayoutParams).weight = 2F
         linearLayout.addView(imageView)
 
         val tapButton = LinearLayout(this)
-        tapButton.layoutParams = LinearLayout.LayoutParams(MP,0)
+        tapButton.layoutParams = LinearLayout.LayoutParams(layMp,0)
         tapButton.orientation = HORIZONTAL
         (tapButton.layoutParams as LinearLayout.LayoutParams).weight = 3F
         linearLayout.addView(tapButton)
 
         val gu = ImageButton(this)
-        gu.layoutParams = LayoutParams(WC,WC)
+        gu.layoutParams = LayoutParams(layWc,layWc)
         (gu.layoutParams as LinearLayout.LayoutParams).weight = 1F
         gu.setImageResource(R.drawable.j_gu02)
         gu.background = getDrawable(R.color.transparent)
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         tapButton.addView(gu)
 
         val ch = ImageButton(this)
-        ch.layoutParams = LayoutParams(WC,WC)
+        ch.layoutParams = LayoutParams(layWc,layWc)
         (ch.layoutParams as LinearLayout.LayoutParams).weight = 1F
         ch.setImageResource(R.drawable.j_ch02)
         ch.background = getDrawable(R.color.transparent)
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         tapButton.addView(ch)
 
         val pa = ImageButton(this)
-        pa.layoutParams = LayoutParams(WC,WC)
+        pa.layoutParams = LayoutParams(layWc,layWc)
         (pa.layoutParams as LinearLayout.LayoutParams).weight = 1F
         pa.setImageResource(R.drawable.j_pa02)
         pa.background = getDrawable(R.color.transparent)
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         tapButton.addView(pa)
 
         val subtitle = TextView(this)
-        subtitle.layoutParams = LayoutParams(MP,WC)
+        subtitle.layoutParams = LayoutParams(layMp,layWc)
         (subtitle.layoutParams as LinearLayout.LayoutParams).weight = 1F
         subtitle.gravity = Gravity.CENTER
         subtitle.text = "画像をタップしてね"

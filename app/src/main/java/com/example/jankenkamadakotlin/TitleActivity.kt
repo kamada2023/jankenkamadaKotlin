@@ -23,45 +23,45 @@ class TitleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        val MP = TableLayout.LayoutParams.MATCH_PARENT
-        val WC = TableLayout.LayoutParams.WRAP_CONTENT
+        val layMp = TableLayout.LayoutParams.MATCH_PARENT
+        val layWc = TableLayout.LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 
         val countApp = CountApp()
 
         val layout = ConstraintLayout(this)
-        layout.layoutParams = LayoutParams(MP,MP)
+        layout.layoutParams = LayoutParams(layMp,layMp)
         setContentView(layout)
 
         val button = Button(this).apply { id = View.generateViewId() }
-        button.layoutParams = LayoutParams(MP,WC)
+        button.layoutParams = LayoutParams(layMp,layWc)
         (button.layoutParams as LayoutParams).gravity = CENTER
         button.text = "セレクト画面へ"
         button.textSize = 36F
         layout.addView(button)
 
         val linearLayout = LinearLayout(this).apply { id = View.generateViewId() }
-        linearLayout.layoutParams = LayoutParams(MP,WC)
+        linearLayout.layoutParams = LayoutParams(layMp,layWc)
         linearLayout.orientation = LinearLayout.VERTICAL
         linearLayout.weightSum = 10F
         linearLayout.gravity = TOP ; CENTER
         layout.addView(linearLayout)
 
         val title = ImageView(this)
-        title.layoutParams = LayoutParams(WC,WC)
+        title.layoutParams = LayoutParams(layWc,layWc)
         title.adjustViewBounds = true
         title.setImageResource(R.drawable.title)
         linearLayout.addView(title)
 
         val imageView = ImageView(this)
-        imageView.layoutParams = LayoutParams(WC,WC)
+        imageView.layoutParams = LayoutParams(layWc,layWc)
         imageView.setImageResource(R.drawable.main)
         (imageView.layoutParams as LayoutParams).gravity = CENTER
         linearLayout.addView(imageView)
 
         val textView1 = TextView(this)
-        textView1.layoutParams = LayoutParams(WC,WC)
+        textView1.layoutParams = LayoutParams(layWc,layWc)
         (textView1.layoutParams as LayoutParams).weight = 1F
         (textView1.layoutParams as LayoutParams).gravity = CENTER
         textView1.text = "僕と勝負だ！！"
@@ -69,7 +69,7 @@ class TitleActivity : AppCompatActivity() {
         linearLayout.addView(textView1)
 
         val textView2 = TextView(this)
-        textView2.layoutParams = LayoutParams(WC,WC)
+        textView2.layoutParams = LayoutParams(layWc,layWc)
         (textView2.layoutParams as LayoutParams).weight = 1F
         (textView2.layoutParams as LayoutParams).gravity = CENTER
         textView2.text = ""+countApp.getNumOfWins()+"勝ち"+
@@ -78,7 +78,7 @@ class TitleActivity : AppCompatActivity() {
         linearLayout.addView(textView2)
 
         val reset = Button(this)
-        reset.layoutParams = LayoutParams(WC,WC)
+        reset.layoutParams = LayoutParams(layWc,layWc)
         (reset.layoutParams as LayoutParams).weight = 1F
         (reset.layoutParams as LayoutParams).gravity = CENTER
         reset.text = "RESET BUTTON"
