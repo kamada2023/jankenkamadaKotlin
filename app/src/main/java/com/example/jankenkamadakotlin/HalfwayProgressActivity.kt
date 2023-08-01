@@ -22,8 +22,8 @@ class HalfwayProgressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        val mp = TableLayout.LayoutParams.MATCH_PARENT
-        val wc = TableLayout.LayoutParams.WRAP_CONTENT
+        val layMp:Int = TableLayout.LayoutParams.MATCH_PARENT
+        val layWc:Int = TableLayout.LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 
@@ -32,12 +32,12 @@ class HalfwayProgressActivity : AppCompatActivity() {
         val countDraw:Int = CountApp().getDrawCount()
 
         val layout = ConstraintLayout(this)
-        layout.layoutParams = LayoutParams(mp,mp)
+        layout.layoutParams = LayoutParams(layMp,layMp)
         layout.setPadding(20,20,20,20)
         setContentView(layout)
 
         val linearLayout = LinearLayout(this).apply { id = View.generateViewId() }
-        linearLayout.layoutParams = LayoutParams(mp,mp)
+        linearLayout.layoutParams = LayoutParams(layMp,layMp)
         linearLayout.orientation = LinearLayout.VERTICAL
         linearLayout.weightSum = 12F
         layout.addView(linearLayout)
@@ -65,7 +65,7 @@ class HalfwayProgressActivity : AppCompatActivity() {
         constraintSet.applyTo(layout)
 
         val textView = TextView(this)
-        textView.layoutParams = LayoutParams(mp,wc)
+        textView.layoutParams = LayoutParams(layMp,layWc)
         textView.text = getString(R.string.halfway_title)
         textView.textSize = 30F
         textView.gravity = Gravity.CENTER
@@ -73,7 +73,7 @@ class HalfwayProgressActivity : AppCompatActivity() {
         linearLayout.addView(textView)
 
         val battleCount = TextView(this)
-        battleCount.layoutParams = LayoutParams(mp,wc)
+        battleCount.layoutParams = LayoutParams(layMp,layWc)
         battleCount.gravity = Gravity.CENTER
         (battleCount.layoutParams as LayoutParams).weight = 3F
         battleCount.textSize = 30F
@@ -81,25 +81,25 @@ class HalfwayProgressActivity : AppCompatActivity() {
         linearLayout.addView(battleCount)
 
         val winCount = TextView(this)
-        winCount.layoutParams = LayoutParams(mp,wc)
+        winCount.layoutParams = LayoutParams(layMp,layWc)
         (winCount.layoutParams as LayoutParams).weight = 1F
         winCount.text = "勝った数：$countWin"
         linearLayout.addView(winCount)
 
         val loseCount = TextView(this)
-        loseCount.layoutParams = LayoutParams(mp,wc)
+        loseCount.layoutParams = LayoutParams(layMp,layWc)
         (loseCount.layoutParams as LayoutParams).weight = 1F
         loseCount.text = "負けた数：$countLose"
         linearLayout.addView(loseCount)
 
         val drawCount = TextView(this)
-        drawCount.layoutParams = LayoutParams(mp,wc)
+        drawCount.layoutParams = LayoutParams(layMp,layWc)
         (drawCount.layoutParams as LayoutParams).weight = 1F
         drawCount.text = "引き分け数：$countDraw"
         linearLayout.addView(drawCount)
 
         val button = Button(this)
-        button.layoutParams = LayoutParams(mp,wc)
+        button.layoutParams = LayoutParams(layMp,layWc)
         (button.layoutParams as LayoutParams).weight = 0F
         button.text = "次の対戦へ"
         linearLayout.addView(button)
