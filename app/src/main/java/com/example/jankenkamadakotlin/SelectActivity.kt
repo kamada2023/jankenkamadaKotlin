@@ -27,8 +27,8 @@ class SelectActivity : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         CountApp().setBattleFormat(0)
-        val layMp = TableLayout.LayoutParams.MATCH_PARENT
-        val layWc = TableLayout.LayoutParams.WRAP_CONTENT
+        val layMp:Int = TableLayout.LayoutParams.MATCH_PARENT
+        val layWc:Int = TableLayout.LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 
@@ -65,6 +65,7 @@ class SelectActivity : AppCompatActivity() {
         val seekBar = SeekBar(this)
         seekBar.layoutParams = LayoutParams(layMp,layWc)
         (seekBar.layoutParams as LayoutParams).gravity = CENTER_VERTICAL
+        seekBar.scrollBarSize = 29
         seekBar.max = 1
         linearLayout1.addView(seekBar)
 
@@ -78,6 +79,7 @@ class SelectActivity : AppCompatActivity() {
         gameCount.layoutParams = LayoutParams(layWc,layWc)
         (gameCount.layoutParams as LayoutParams).gravity = CENTER_VERTICAL
         (gameCount.layoutParams as LayoutParams).weight = 1F
+        gameCount.scrollBarSize = 29
         gameCount.max = 9
         linearLayout2.addView(gameCount)
 
@@ -120,7 +122,7 @@ class SelectActivity : AppCompatActivity() {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 if (p1 == 1){
-                    gameMode.text = "星取り戦　"
+                    gameMode.text = "星取り　戦"
                     rule.text = "1.対戦形式は任意で1～10まで対戦できます\n" +
                             "2.設定した回戦数の半分以上を満たした\n" +
                             "場合終了します\n" +

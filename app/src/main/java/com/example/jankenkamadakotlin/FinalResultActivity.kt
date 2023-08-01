@@ -21,8 +21,8 @@ class FinalResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val layMp = TableLayout.LayoutParams.MATCH_PARENT
-        val layWc = TableLayout.LayoutParams.WRAP_CONTENT
+        val layMp:Int = TableLayout.LayoutParams.MATCH_PARENT
+        val layWc:Int = TableLayout.LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 

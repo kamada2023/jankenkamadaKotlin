@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         val chHand = 1
         val paHand = 2
 
-        val layMp = LayoutParams.MATCH_PARENT
-        val layWc = LayoutParams.WRAP_CONTENT
+        val layMp:Int = LayoutParams.MATCH_PARENT
+        val layWc:Int = LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 
