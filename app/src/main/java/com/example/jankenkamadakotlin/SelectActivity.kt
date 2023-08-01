@@ -6,9 +6,9 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.Gravity.BOTTOM
 import android.view.Gravity.CENTER
+import android.view.Gravity.CENTER_HORIZONTAL
 import android.view.Gravity.CENTER_VERTICAL
 import android.view.Gravity.TOP
-import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams
@@ -27,76 +27,77 @@ class SelectActivity : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         CountApp().setBattleFormat(0)
-        val MP = TableLayout.LayoutParams.MATCH_PARENT
-        val WC = TableLayout.LayoutParams.WRAP_CONTENT
+        val layMp = TableLayout.LayoutParams.MATCH_PARENT
+        val layWc = TableLayout.LayoutParams.WRAP_CONTENT
         //val dp = resources.displayMetrics.density
         //val sp = resources.displayMetrics.scaledDensity
 
 
-        val linearLayout = LinearLayout(this).apply { id = View.generateViewId() }
-        linearLayout.layoutParams = LayoutParams(MP, MP)
+        val linearLayout = LinearLayout(this)
+        linearLayout.layoutParams = LayoutParams(layMp, layMp)
         linearLayout.orientation = LinearLayout.VERTICAL
-        linearLayout.weightSum = 10F
+        linearLayout.weightSum = 15F
         setContentView(linearLayout)
 
         val textView = TextView(this)
-        textView.layoutParams = LayoutParams(MP,WC)
+        textView.layoutParams = LayoutParams(layMp,layWc)
         textView.text = "対戦形式"
-        textView.gravity = CENTER
+        textView.gravity = CENTER_HORIZONTAL
+        (textView.layoutParams as LayoutParams).weight = 5F
         (textView.layoutParams as LayoutParams).gravity = TOP
-        (textView.layoutParams as LayoutParams).weight = 3F
         textView.textSize = 30F
         linearLayout.addView(textView)
 
         val linearLayout1 = LinearLayout(this)
-        linearLayout1.layoutParams = LayoutParams(MP,WC)
+        linearLayout1.layoutParams = LayoutParams(layMp,layWc)
         linearLayout1.orientation = LinearLayout.HORIZONTAL
         (linearLayout1.layoutParams as LayoutParams).weight = 1F
+        linearLayout1.setPadding(20,0,20,0)
         linearLayout.addView(linearLayout1)
 
         val gameMode = TextView(this)
-        gameMode.layoutParams = LayoutParams(WC,WC)
+        gameMode.layoutParams = LayoutParams(layWc,layWc)
         (gameMode.layoutParams as LayoutParams).gravity = CENTER_VERTICAL
         gameMode.textSize = 40F
         gameMode.text = "総当たり戦"
         linearLayout1.addView(gameMode)
 
         val seekBar = SeekBar(this)
-        seekBar.layoutParams = LayoutParams(MP,WC)
+        seekBar.layoutParams = LayoutParams(layMp,layWc)
         (seekBar.layoutParams as LayoutParams).gravity = CENTER_VERTICAL
         seekBar.max = 1
         linearLayout1.addView(seekBar)
 
         val linearLayout2 = LinearLayout(this)
-        linearLayout2.layoutParams = LayoutParams(MP,WC)
+        linearLayout2.layoutParams = LayoutParams(layMp,layWc)
         linearLayout2.orientation = LinearLayout.HORIZONTAL
         (linearLayout2.layoutParams as LayoutParams).weight = 1F
         linearLayout.addView(linearLayout2)
 
         val gameCount = SeekBar(this)
-        gameCount.layoutParams = LayoutParams(WC,WC)
+        gameCount.layoutParams = LayoutParams(layWc,layWc)
         (gameCount.layoutParams as LayoutParams).gravity = CENTER_VERTICAL
         (gameCount.layoutParams as LayoutParams).weight = 1F
         gameCount.max = 9
         linearLayout2.addView(gameCount)
 
         val roundCount = TextView(this)
-        roundCount.layoutParams = LayoutParams(WC,WC)
+        roundCount.layoutParams = LayoutParams(layWc,layWc)
         (roundCount.layoutParams as LayoutParams).weight = 0F
         roundCount.textSize = 27F
         roundCount.text = "回数："+(CountApp().getCount())
         linearLayout2.addView(roundCount)
 
         val expRule = TextView(this)
-        expRule.layoutParams = LayoutParams(MP,WC)
+        expRule.layoutParams = LayoutParams(layMp,layWc)
         (expRule.layoutParams as LayoutParams).weight = 1F
         expRule.textSize = 19F
         expRule.text = "ルール"
         linearLayout.addView(expRule)
 
         val rule = AppCompatTextView(this)
-        rule.layoutParams = LayoutParams(MP,WC)
-        (rule.layoutParams as LayoutParams).weight = 3F
+        rule.layoutParams = LayoutParams(layMp,layWc)
+        (rule.layoutParams as LayoutParams).weight = 6F
         rule.setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM)
         rule.maxLines = 6
         rule.textSize = 19F
@@ -107,9 +108,9 @@ class SelectActivity : AppCompatActivity() {
         linearLayout.addView(rule)
 
         val gameStart = Button(this)
-        gameStart.layoutParams = LayoutParams(MP,WC)
-        (gameStart.layoutParams as LayoutParams).weight = 1F
-        (gameStart.layoutParams as LayoutParams).setMargins(10,0,10,0)
+        gameStart.layoutParams = LayoutParams(layMp,layWc)
+        (gameStart.layoutParams as LayoutParams).weight = 0F
+        (gameStart.layoutParams as LayoutParams).setMargins(20,0,20,0)
         gameStart.gravity = CENTER
         (gameStart.layoutParams as LayoutParams).gravity = BOTTOM
         gameStart.textSize = 36F
